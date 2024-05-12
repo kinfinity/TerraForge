@@ -33,4 +33,4 @@ jobs:
       - name: Build Terraforge
         run: |
           chmod +x ci/scripts/terraforge-build.sh
-          ci/scripts/terraforge-build.sh
+          ci/scripts/terraforge-build.sh build
