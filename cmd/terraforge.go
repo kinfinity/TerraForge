@@ -1,26 +1,23 @@
 /*
-Copyright © 2024 kokou.egbewatt@gmail.com
+Copyright © 2024 kegbewatt@aortem.io
 
 	TERRAFORGE - Easing Terraform environment bootstrapping and development
 */
 package main
 
 import (
-	"fmt"
-	"os"
-
+	"github.com/kinfinity/terraforge/pkg/cli"
+	"github.com/kinfinity/terraforge/pkg/cmd"
 )
 
 func main() {
-	if len(os.Args) <= 1 {
-		PrintUsage()
-		os.Exit(0)
-	}
-}
 
-func PrintUsage() {
-	fmt.Println(
-		`USAGE:
-		
-terraforge <command> <args>`)
+	terraforgeCli := cli.NewCli()
+
+	command := cmd.NewDefaultTerraforgeCommand(terraforgeCli.Logger())
+
+	if err := terraforgeCli.Run(command); err != nil {
+		terraforgeCli.Logger().Fatalf("%s", err)
+	}
+
 }
