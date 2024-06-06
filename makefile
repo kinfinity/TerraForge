@@ -5,7 +5,7 @@
 #  clean  	: removes all build artifacts
 #  test   	: runs tests
 VERSION=0.0.1
-DOCKER_IMAGE ?= teleport
+DOCKER_IMAGE ?= terraforge
 GIT_TAG=v$(VERSION)
 
 
